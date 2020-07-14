@@ -1,6 +1,6 @@
 clear all;
 G_HMM = [2.5 4.3 4.5 7.5 20];
-G_OU = [4.3 7.5];%list of Gamma value
+G_OU =[2.5 4.3 4.5 7.5 20];%list of Gamma value
 calibration_date = '20200219';
 HMM_time =5;%Time length of HMM of movie
 OU_time = 5;%Time length of OU of movie
@@ -119,3 +119,6 @@ makeGrating_shuffledvideo(makemovie_folder,movie_folder, videoworkspace_folder, 
 makeGrating_shuffledvideo(makemovie_folder,movie_folder, videoworkspace_folder, '0619',calibration_date, 6.5, 13)
 makeGrating_shuffledvideo(makemovie_folder,movie_folder, videoworkspace_folder, '0619',calibration_date, 0, 13)
 makeGrating_shuffledvideo(makemovie_folder,movie_folder, videoworkspace_folder, '0619',calibration_date, 0, 6.5)
+
+%% OnOff
+Oled_Drinnenberg_OnOff_movie(makemovie_folder,movie_folder,date,calibration_date,6.5)
