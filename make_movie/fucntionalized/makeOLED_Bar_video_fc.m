@@ -78,14 +78,21 @@ for cutOffFreq = cutOffFreq_list
     %% HMM trajectory
     if strcmp(type,'HMM')
         Xarray = HMM_generator(T,dt,Gvalue,rntest);
+        series_type = 'HMM';
     elseif strcmp(type,'OUsmooth')%Smooth OU
-        if cutOffFreq == 0, Xarray = OU_generator(T,dt,Gvalue,rntest);
-        else,               Xarray = Smooth_OU_generator(T,dt,Gvalue,rntest,cutOffFreq); end
+        if cutOffFreq == 0
+            Xarray = OU_generator(T,dt,Gvalue,rntest);
+            series_type = 'OU';
+        else
+            Xarray = Smooth_OU_generator(T,dt,Gvalue,rntest,cutOffFreq);
+            series_type = 'OUsmooth';
+        end
         name = [name,'_',num2str(cutOffFreq),'Hz'];
     elseif strcmp(type,'cSTA')%cSTA %30Hz
         Xarray=randn(1,length(Time/2));%Gaussian noise with 30% std
         Xarray = imresize(Xarray, [1 length(Time)], 'nearest'); %30Hz
         name=[date,'_',type,'_',direction,'_',int2str(mins),'min_Q100_',num2str(mean_lumin),'mW_',num2str(contrast*100)];
+        series_type = 'cSTA';
     end
     name
     %% Normalize to proper moving range and video name
@@ -135,7 +142,8 @@ for cutOffFreq = cutOffFreq_list
     close(writerObj);
     cd(videoworkspace_folder)
     %% Save parameters needed
-    save([name,'.mat'],'newXarray','type','direction', 'contrast', 'mean_lumin', 'theta')
+    stimulation_type = 'Bar';
+    save([name,'.mat'],'newXarray','series_type','stimulation_type','direction', 'contrast', 'mean_lumin', 'theta')
 end
 cd(makemovie_folder)
 end

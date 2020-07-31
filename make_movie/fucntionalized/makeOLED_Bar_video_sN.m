@@ -33,6 +33,14 @@ if contrast == 0 %2nd_Oder_Motion bar
     else
         disp('Already have produced matrix')
     end
+elseif contrast == j
+    matrix_folder = ['C:\',calibration_date,'BrightBar_matrix_',num2str(mean_lumin),'mW\'];
+    if exist([matrix_folder '\',num2str(rotation)]) == 0
+        make_BrightBar_matrix(calibration_date,mean_lumin,rotation);
+    else
+        disp('Already have produced matrix')
+    end
+    contrast = -1;
 elseif isnan(interp1(real_lum,lum,(contrast+1)*mean_lumin,'linear'))
     disp('There is error about contrast')
     return
