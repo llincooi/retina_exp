@@ -95,13 +95,13 @@ for cutOffFreq = cutOffFreq_list
     end
     %% Normalize to proper moving range and video name
     if strcmp(part,'left')
-        newXarray = round(rescale(Xarray, meaCenter_x-mea_size_bm*2/3+bar_wid+1, meaCenter_x-mea_size_bm/3-bar_wid));
+        newXarray = round(rescale(Xarray, meaCenter_x-mea_size_bm*1/2+bar_wid, meaCenter_x-mea_size_bm/6-bar_wid));
         name = [name,'_left'];
     elseif strcmp(part,'right')
-        newXarray = round(rescale(Xarray, meaCenter_x+mea_size_bm/3+bar_wid+1, meaCenter_x+mea_size_bm*2/3-bar_wid));
+        newXarray = round(rescale(Xarray, meaCenter_x+mea_size_bm/6+bar_wid, meaCenter_x+mea_size_bm*1/2-bar_wid));
         name = [name,'_right'];
     elseif strcmp(part,'mid')
-        newXarray = round(rescale(Xarray, meaCenter_x-mea_size_bm/3+bar_wid+1, meaCenter_x+mea_size_bm/3-bar_wid));
+        newXarray = round(rescale(Xarray, meaCenter_x-mea_size_bm/6+bar_wid, meaCenter_x+mea_size_bm/6-bar_wid));
         name = [name,'_mid'];
     end
     name
@@ -126,8 +126,7 @@ for cutOffFreq = cutOffFreq_list
     
     %% Draw moving bar
     for kk =1:length(Time)
-        X=newXarray(kk);%Get bar center position
-        load([matrix_folder,num2str(theta*4/pi),'\',num2str(X),'.mat']);% Load picture matrix
+        load([matrix_folder,num2str(theta*4/pi),'\',num2str(newXarray(kk)),'.mat']);% Load picture matrix
         %% Square_flicker
         if mod(kk,3)==1 %odd number
             a(flicker_loc(1):flicker_loc(2),flicker_loc(3):flicker_loc(4))=1; % white square
