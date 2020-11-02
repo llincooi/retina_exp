@@ -1,4 +1,4 @@
-function[on_spikes,off_spikes] =seperate_Gollishtrials(Spikes,diode_on_start,diode_off_start,diode_end)
+function SSpikes =seperate_Gollishtrials(Spikes,diode_on_start,diode_off_start,diode_end)
     %% This function cut each stimulus' spikes and add them up
     %diode_on_start stores when on starts
     %diode_off_start stores when off starts
