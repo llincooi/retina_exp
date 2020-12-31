@@ -6,7 +6,7 @@ calibration_date = '20200219';
 HMM_time =5;%Time length of HMM of movie
 OU_time = 5;%Time length of OU of movie
 makemovie_folder = 'C:\Users\hydro_leo\Documents\GitHub\retina_exp\make_movie\fucntionalized'; %this approach sucks.
-date = '0727';
+date = '1006';
 seed_date = '0421';
 mean_lumin =6.5;
 movie_folder = '\\192.168.0.100\Experiment\Retina\2020Videos\0609v\videos\';
@@ -132,7 +132,9 @@ Oled_Drinnenberg_OnOff_movie(makemovie_folder,movie_folder,date,calibration_date
 
 %% OLD Smooth OU Bright Fc
 %makeOLED_Bar_video_fc(makemovie_folder, theta, direction, video_folder, videoworkspace_folder, type, seed_date, date, calibration_date, mins, Gvalue, mean_lumin, contrast, cutOffFreq_list)
-makeOLED_Bar_video_fc(makemovie_folder, 0, 'RL', [movie_folder,'OU'], videoworkspace_folder,'OUsmooth', seed_date,date,calibration_date,OU_time,G_OU,mean_lumin,j,cutOffFreq_list);
-makeOLED_Bar_video_fc(makemovie_folder, pi/2, 'UD', [movie_folder,'OU'], videoworkspace_folder,'OUsmooth', seed_date,date,calibration_date,OU_time,G_OU,mean_lumin,j,cutOffFreq_list);
-makeOLED_Bar_video_fc(makemovie_folder, pi/4, 'UL_DR', [movie_folder,'OU'], videoworkspace_folder,'OUsmooth', seed_date,date,calibration_date,OU_time,G_OU,mean_lumin,j,cutOffFreq_list);
-makeOLED_Bar_video_fc(makemovie_folder, 3*pi/4, 'UR_DL', [movie_folder,'OU'], videoworkspace_folder,'OUsmooth', seed_date,date,calibration_date,OU_time,G_OU,mean_lumin,j,cutOffFreq_list);
+for G_OU = [2.5 4.3 4.5 7.5 20]
+    makeOLED_Bar_video_fc(makemovie_folder, 0, 'RL', [movie_folder,'OU'], videoworkspace_folder,'OUsmooth', seed_date,date,calibration_date,OU_time,G_OU,mean_lumin,j,cutOffFreq_list);
+    makeOLED_Bar_video_fc(makemovie_folder, pi/2, 'UD', [movie_folder,'OU'], videoworkspace_folder,'OUsmooth', seed_date,date,calibration_date,OU_time,G_OU,mean_lumin,j,cutOffFreq_list);
+    makeOLED_Bar_video_fc(makemovie_folder, pi/4, 'UL_DR', [movie_folder,'OU'], videoworkspace_folder,'OUsmooth', seed_date,date,calibration_date,OU_time,G_OU,mean_lumin,j,cutOffFreq_list);
+    makeOLED_Bar_video_fc(makemovie_folder, 3*pi/4, 'UR_DL', [movie_folder,'OU'], videoworkspace_folder,'OUsmooth', seed_date,date,calibration_date,OU_time,G_OU,mean_lumin,j,cutOffFreq_list);
+end
