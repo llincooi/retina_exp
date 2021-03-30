@@ -97,6 +97,7 @@ for k =displaychannel
         gauss_RF{i,k} = imgaussfilt(RF{i,k},1.5);
     end
 end
+
 side_length = length(sum_checkerboard);%length of checkerboard
 
 %% calculate SVD and plot SVD

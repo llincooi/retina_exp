@@ -9,8 +9,8 @@ xdata(:,:,1) = X;
 xdata(:,:,2) = Y;
 Z = space;
 %% --- Fit---------------------
-    % define lower and upper bounds [Amp,xo,wx,yo,wy,fi]
-    lb = [0,1,0,1,0,-pi/4];
-    ub = [realmax('double'),MdataSize,(MdataSize),MdataSize,(MdataSize),pi/4];
-    [RF,resnorm,residual,exitflag] = lsqcurvefit(@D2GaussFunctionRot,x0,xdata,Z,lb,ub);
+% define lower and upper bounds [Amp,xo,wx,yo,wy,fi]
+lb = [0,1,0,1,0,-pi/4];
+ub = [realmax('double'),MdataSize,(MdataSize),MdataSize,(MdataSize),pi/4];
+[RF,resnorm,residual,exitflag] = lsqcurvefit(@D2GaussFunctionRot,x0,xdata,Z,lb,ub);
 end
