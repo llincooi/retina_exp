@@ -4,7 +4,7 @@ close all;
 delay_correction = 0.0071;
 
 code_folder = pwd;
-exp_folder = 'E:\20200302';
+exp_folder = 'D:\GoogleDrive\retina\Chou''s data\20210331';
 videoworkspace = '\\192.168.0.100\Experiment\Retina\2020Videos\0219v\videoworkspace\';
 cd(exp_folder)
 cd playmovie

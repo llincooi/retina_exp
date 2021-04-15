@@ -16,6 +16,7 @@ mkdir OU
 videoworkspace_folder = '\\192.168.0.100\Experiment\Retina\2020Videos\0609v\videoworkspace\';
 cd(makemovie_folder);
 
+plot(rntest(1:1000))
 
 % G_HMM = [4.3];
 % G_OU = [4.3];
