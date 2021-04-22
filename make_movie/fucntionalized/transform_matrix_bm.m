@@ -1,8 +1,8 @@
 function img = transform_matrix_bm(calibration_date,all_bar,degree)
 %    length(all_bar) should eqauls to diaganol of diplaying region 
    
-    load(['C:\calibration\',calibration_date,'oled_calibration\calibration.mat'])
-    load(['C:\calibration\',calibration_date,'oled_calibration\oled_boundary_set.mat']);
+    load(['C:\retina_makemovie\calibration\',calibration_date,'oled_calibration\calibration.mat'])
+    load(['C:\retina_makemovie\calibration\',calibration_date,'oled_calibration\oled_boundary_set.mat']);
     
     region_bm = length(all_bar);
     

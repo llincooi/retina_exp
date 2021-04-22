@@ -1,6 +1,6 @@
-function makeOLED_video_from_matrix(WherenWhen, theta, lumin, sti_matrix, matrix_properties)
-load(['C:\calibration\',WherenWhen.calibration_date,'oled_calibration\calibration.mat'])
-load(['C:\calibration\',WherenWhen.calibration_date,'oled_calibration\oled_boundary_set.mat']);
+function makeOLED_video_from_matrix(WherenWhen, theta, lumin, sti_matrix, matrix_properties, newXarray)
+load(['C:\retina_makemovie\calibration\',WherenWhen.calibration_date,'oled_calibration\calibration.mat'])
+load(['C:\retina_makemovie\calibration\',WherenWhen.calibration_date,'oled_calibration\oled_boundary_set.mat']);
 fps=60;  %freq of the screen flipping
 dt=1/fps; %second
 Time = (1:size(sti_matrix, 1))*dt;
@@ -52,5 +52,5 @@ img=zeros(screen_y,screen_x);
 writeVideo(writerObj,img);
 close(writerObj);
 
-% save([name,'.mat'],'newXarray','series_type','stimulation_type','direction', 'contrast', 'mean_lumin', 'theta')
+save([name,'.mat'],'newXarray','matrix_properties')
 end

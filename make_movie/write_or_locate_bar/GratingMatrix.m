@@ -1,7 +1,7 @@
 clear all;
 load('oled_channel_pos.mat')
 load('oled_boundary_set.mat')
-load('C:\Users\llinc\GitHub\retina_exp\make_movie\0421 new video Br25\rn_workspace\o_rntestG045.mat')
+load('C:\retina_makemovie\0421 new video Br50\rn_workspace\o_rntestG045.mat')
 
 dt = 1/60;
 for Fc = [1,4]
@@ -26,5 +26,5 @@ for Fc = [1,4]
     
     matrix_properties.VideoName = ['grating_3to1_OUsmooth_', num2str(Fc),'_Hz'];
     matrix_properties.CenterBarPos = newXarray+meaCenter_x;
-    save(['C:\Users\llinc\GitHub\retina_personal\Movie_temp\grating_matrix\grating_3to1_OUsmooth_', num2str(Fc),'_Hz.mat'],'sti_matrix', 'matrix_properties')
+    save(['C:\retina_makemovie\GratingMatrix\grating_3to1_OUsmooth_', num2str(Fc),'_Hz.mat'],'sti_matrix', 'matrix_properties', 'newXarray')
 end
