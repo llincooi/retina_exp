@@ -52,5 +52,6 @@ img=zeros(screen_y,screen_x);
 writeVideo(writerObj,img);
 close(writerObj);
 
-save([name,'.mat'],'newXarray','matrix_properties')
+[WherenWhen.videoworkspace_folder, name,'.mat']
+save([WherenWhen.videoworkspace_folder, name,'.mat'],'newXarray','matrix_properties')
 end
