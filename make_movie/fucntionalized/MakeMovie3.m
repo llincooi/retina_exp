@@ -22,4 +22,4 @@ load('C:\retina_makemovie\GratingMatrix\grating_3to1_OUsmooth_1_Hz.mat')
 for theta = pi/3
     makeOLED_video_from_matrix(WherenWhen, theta, lumin, sti_matrix, matrix_properties, newXarray)
 end
-      
+%%

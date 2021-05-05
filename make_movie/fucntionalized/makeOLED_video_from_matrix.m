@@ -21,8 +21,7 @@ elseif lumin(2) < 0.3
 else
     background_lumin = interp1(real_lum,lum,lumin(2),'linear');
 end
-sti_matrix = sti_matrix*bar_lumin;
-sti_matrix(sti_matrix==0) = background_lumin;
+sti_matrix = sti_matrix*(bar_lumin-background_lumin)+background_lumin;
 %% Start part: adaptation
 img=zeros(screen_y,screen_x);
 for mm=1:fps*20
