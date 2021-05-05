@@ -24,7 +24,11 @@ for theta = pi/3
 end
 %%
 lumin = [6.5 0];
-load('C:\retina_makemovie\GPMatrix\GP_s=60_OUsmooth_4Hz.mat')
-for theta = [0]
-    makeOLED_video_from_matrix(WherenWhen, theta, lumin, sti_matrix, matrix_properties, newXarray)
+for sigma = [6.8, 20, 40, 60]
+    for Fc = [1 4]
+        load(['C:\retina_makemovie\GPMatrix\GP_s=', num2str(sigma),'_OUsmooth_', num2str(Fc),'Hz.mat'])
+        for theta = [0,pi/2,pi/4, pi3*/4]
+            makeOLED_video_from_matrix(WherenWhen, theta, lumin, sti_matrix, matrix_properties, newXarray)
+        end
+    end
 end

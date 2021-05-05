@@ -6,7 +6,17 @@ dt=1/fps; %second
 Time = (1:size(sti_matrix, 1))*dt;
 thetaD = -theta*180/pi;
 %% Video setting
-name = [WherenWhen.date, '_', matrix_properties.VideoName, '_d', num2str(thetaD), '_', num2str(lumin(1)), 'v', num2str(lumin(2)), 'mW']
+if theta == 0
+    name = [WherenWhen.date, '_', matrix_properties.VideoName, '_RL_', num2str(lumin(1)), 'v', num2str(lumin(2)), 'mW']
+elseif theta == pi/2
+    name = [WherenWhen.date, '_', matrix_properties.VideoName, '_UD_', num2str(lumin(1)), 'v', num2str(lumin(2)), 'mW']
+elseif theta == pi/4
+    name = [WherenWhen.date, '_', matrix_properties.VideoName, '_UL_DR_', num2str(lumin(1)), 'v', num2str(lumin(2)), 'mW']
+elseif theta == pi*3/4
+    name = [WherenWhen.date, '_', matrix_properties.VideoName, '_UR_DL_', num2str(lumin(1)), 'v', num2str(lumin(2)), 'mW']
+else
+    name = [WherenWhen.date, '_', matrix_properties.VideoName, '_d', num2str(thetaD), '_', num2str(lumin(1)), 'v', num2str(lumin(2)), 'mW']
+
 video_fps=fps;
 writerObj = VideoWriter([WherenWhen.video_folder,name,'.avi']);  %change video name here!
 writerObj.FrameRate = video_fps;
@@ -51,6 +61,6 @@ img=zeros(screen_y,screen_x);
 writeVideo(writerObj,img);
 close(writerObj);
 
-[WherenWhen.videoworkspace_folder, name,'.mat']
+% [WherenWhen.videoworkspace_folder, name,'.mat']
 save([WherenWhen.videoworkspace_folder, name,'.mat'],'newXarray','matrix_properties')
 end
