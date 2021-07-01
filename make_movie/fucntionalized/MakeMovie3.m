@@ -35,7 +35,9 @@ G_OU =[4.5];
 
 %%
 lumin = [6.5 0.05];
-load('C:\retina_makemovie\GratingMatrix\grating_3to1_OUsmooth_1_Hz.mat')
-for theta = pi/3
-    makeOLED_video_from_matrix(WherenWhen, theta, lumin, sti_matrix, matrix_properties, newXarray)
+for Fc = [1 4]
+    load(['C:\retina_makemovie\SWMatrix\SW_hw=8_OUsmooth_', num2str(Fc),'Hz.mat'])
+    for theta = [0,pi/2,pi/4, pi*3/4]
+        makeOLED_video_from_matrix(WherenWhen, theta, lumin, sti_matrix, matrix_properties, newXarray)
+    end
 end
