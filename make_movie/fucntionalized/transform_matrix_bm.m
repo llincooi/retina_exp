@@ -14,12 +14,11 @@ function img = transform_matrix_bm(calibration_date,all_bar,degree, maxlum, minl
     if length(minlum) ==1
         rotate_all_bars = rotate_all_bars*(maxlum-minlum)+minlum;
     else
-        lowestbackground_lumin = minlum(1);
-        ditherratio_lumin = minlum(0);
+        ditherratio= minlum(2);
         background = rand(size(rotate_all_bars));
         background(background>=ditherratio) = 1;
         background(background<ditherratio) = 0;
-        rotate_all_bars = rotate_all_bars*bar_lumin+(1-rotate_all_bars).*background*lowestbackground_lumin;
+        rotate_all_bars = rotate_all_bars*maxlum+(1-rotate_all_bars).*background*minlum(1);
     end
 %     imagesc(rotate_all_bars(index, index));
     
