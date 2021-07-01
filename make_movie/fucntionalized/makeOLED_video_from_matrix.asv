@@ -47,7 +47,7 @@ for kk =1:length(Time)
         background = rand(size(sti_matrix));
         background(background>=ditherratio) = 1;
         background(background<ditherratio) = 0;
-        sti_matrix(kk,:) = sti_matrix(kk,:)*bar_lumin+(1-sti_matrix(kk,:)).*background*lowestbackground_lumin;
+        sti_matrix = sti_matrix*bar_lumin+(1-sti_matrix).*background*lowestbackground_lumin;
     end
     a = transform_matrix_bm(WherenWhen.calibration_date,sti_matrix(kk,:),thetaD); 
     %% Square_flicker
