@@ -1,7 +1,8 @@
 function Xarray = series_generator(type, Tmin , Gvalue, seeddate, cutOffFreq, productfolder)
-if Gvalue=4.5:
-    load('C:\retina_makemovie\',seeddate,' new video Br50\rn_workspace\o_rntestG045.mat')
+if Gvalue==4.5
+    load(['C:\retina_makemovie\',seeddate,' new video Br50\rn_workspace\o_rntestG045.mat'])
 end% wait for you to extent
+mkdir([productfolder,'\series_folder'])
 T = Tmin*60;
 dt = 1/60;
 if strcmp(type, 'LPOU')
