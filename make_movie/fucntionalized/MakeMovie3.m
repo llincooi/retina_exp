@@ -34,10 +34,12 @@ G_OU =[4.5];
 % end
 
 %%
-lumin = [6.5 0.05];
-for Fc = [1 4]
-    load(['C:\retina_makemovie\SWMatrix\SW_hw=8_OUsmooth_', num2str(Fc),'Hz.mat'])
-    for theta = [0,pi/2,pi/4, pi*3/4]
-        makeOLED_video_from_matrix(WherenWhen, theta, lumin, sti_matrix, matrix_properties, newXarray)
+for minlum = [0.04, 0.025]
+    lumin = [6.5 minlum];
+    for Fc = [1 4]
+        load(['C:\retina_makemovie\SWMatrix\SW_hw=8_OUsmooth_', num2str(Fc),'Hz.mat'])
+        for theta = [0,pi/2,pi/4, pi*3/4]
+            makeOLED_video_from_matrix(WherenWhen, theta, lumin, sti_matrix, matrix_properties, newXarray)
+        end
     end
 end
