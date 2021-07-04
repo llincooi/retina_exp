@@ -60,7 +60,7 @@ elseif strcmp(type,'Grating') % some pos are redundant can be imporved
         end
     else %wait for you to extent
     end
-    save([productfolder, 'sti_matrix_folder\',type,'\_hw',num2str(width),'_DBrR',num2str(D2BR),length,...
+    save([productfolder, 'sti_matrix_folder\',type,'\_hw',num2str(width),'_DBrR',num2str(D2BR),'_',length,...
         '_',num2str(dynamical_range(1)),'to',num2str(dynamical_range(2)),'.mat'], 'sti_matrix');
     
 end
